@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tfhkx.dao.AreaDao">
+
+    <select id="selectAllArea" resultType="Area">
+        select ct.id,ct.countyname as name,ct.weatherid as weather_id from province p,city c,county ct
+        where p.id=c.provinceid and c.citycode=ct.cityid and p.id=#{param1} and c.citycode=#{param2}
+    </select>
+</mapper>
